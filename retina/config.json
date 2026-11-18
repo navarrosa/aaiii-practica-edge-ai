@@ -1,0 +1,95 @@
+{
+ "titulo": "Behe · Tamizaje de retinopatía",
+ "umbral": 0.5,
+ "modelos": [
+  {
+   "nombre": "MobileNetV2 · float32",
+   "archivo": "mobilenetv2_float32.onnx",
+   "verificar": true
+  },
+  {
+   "nombre": "MobileNetV2 · INT8",
+   "archivo": "mobilenetv2_int8.onnx",
+   "verificar": false
+  },
+  {
+   "nombre": "EfficientNetB0 · float32",
+   "archivo": "efficientnetb0_float32.onnx",
+   "verificar": true
+  },
+  {
+   "nombre": "EfficientNetB0 · INT8",
+   "archivo": "efficientnetb0_int8.onnx",
+   "verificar": false
+  }
+ ],
+ "entrada": {
+  "lado": 224,
+  "formato": "NHWC",
+  "escala": "0-255"
+ },
+ "etiqueta_positiva": "Retinopatía moderada o peor: referir",
+ "etiqueta_negativa": "Sin retinopatía o leve",
+ "ejemplos": [
+  {
+   "archivo": "ejemplos/prueba_2.png",
+   "real": 1,
+   "p_python": {
+    "MobileNetV2 · float32": 0.7038012742996216,
+    "MobileNetV2 · INT8": 0.9596101641654968,
+    "EfficientNetB0 · float32": 0.8629971742630005,
+    "EfficientNetB0 · INT8": 0.0
+   }
+  },
+  {
+   "archivo": "ejemplos/prueba_9.png",
+   "real": 1,
+   "p_python": {
+    "MobileNetV2 · float32": 0.8747622966766357,
+    "MobileNetV2 · INT8": 0.305508553981781,
+    "EfficientNetB0 · float32": 0.8235026597976685,
+    "EfficientNetB0 · INT8": 0.0
+   }
+  },
+  {
+   "archivo": "ejemplos/prueba_11.png",
+   "real": 1,
+   "p_python": {
+    "MobileNetV2 · float32": 0.9896286725997925,
+    "MobileNetV2 · INT8": 0.4660963714122772,
+    "EfficientNetB0 · float32": 0.9657163619995117,
+    "EfficientNetB0 · INT8": 0.0
+   }
+  },
+  {
+   "archivo": "ejemplos/prueba_0.png",
+   "real": 0,
+   "p_python": {
+    "MobileNetV2 · float32": 0.0021029412746429443,
+    "MobileNetV2 · INT8": 0.0,
+    "EfficientNetB0 · float32": 0.05153083801269531,
+    "EfficientNetB0 · INT8": 0.0
+   }
+  },
+  {
+   "archivo": "ejemplos/prueba_1.png",
+   "real": 0,
+   "p_python": {
+    "MobileNetV2 · float32": 0.006441950798034668,
+    "MobileNetV2 · INT8": 0.007833552546799183,
+    "EfficientNetB0 · float32": 0.014541655778884888,
+    "EfficientNetB0 · INT8": 0.0
+   }
+  },
+  {
+   "archivo": "ejemplos/prueba_3.png",
+   "real": 0,
+   "p_python": {
+    "MobileNetV2 · float32": 0.005869418382644653,
+    "MobileNetV2 · INT8": 0.0,
+    "EfficientNetB0 · float32": 0.03098297119140625,
+    "EfficientNetB0 · INT8": 0.0
+   }
+  }
+ ]
+}

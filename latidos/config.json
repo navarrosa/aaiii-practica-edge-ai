@@ -1,0 +1,1 @@
+{"umbral": 0.5, "latidos": "latidos.json", "modelos": [{"nombre": "Conv1D · INT8", "archivo": "latidos_int8.onnx"}, {"nombre": "Conv1D · float32", "archivo": "latidos_float32.onnx"}]}

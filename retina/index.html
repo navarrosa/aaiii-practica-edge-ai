@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Behe · Tamizaje de retinopatía en el celular</title>
+<link rel="stylesheet" href="../comun/estilo.css">
+</head>
+<body>
+<header>
+  <p class="etq">IN1042 · PARCIAL III · S2 · EDGE AI</p>
+  <h1>Tamizaje de retinopatía en tu celular</h1>
+  <p class="sub">El modelo se descarga una vez y clasifica <b>dentro de este teléfono</b>. La foto nunca sale del dispositivo.</p>
+</header>
+
+<section class="tarjeta">
+  <h2>1 · El modelo</h2>
+  <label for="selModelo">Versión:</label>
+  <select id="selModelo"></select>
+  <button id="btnCargar">Cargar modelo</button>
+  <p id="estadoModelo" class="estado">Sin cargar.</p>
+</section>
+
+<section class="tarjeta">
+  <h2>2 · La retinografía</h2>
+  <div class="botones">
+    <label class="boton" for="archivo">📷 Tomar o elegir foto</label>
+    <input type="file" id="archivo" accept="image/*" capture="environment" hidden>
+    <span id="ejemplos"></span>
+  </div>
+  <canvas id="lienzo" width="224" height="224"></canvas>
+  <p class="nota">La imagen se recorta al centro y se reduce a 224 × 224, igual que en el entrenamiento.</p>
+</section>
+
+<section class="tarjeta">
+  <h2>3 · El resultado</h2>
+  <div id="resultado" class="resultado">—</div>
+  <p id="verificacion" class="nota"></p>
+  <button id="btnVelocidad" disabled>⏱ Medir velocidad (20 repeticiones)</button>
+  <table id="tablaTiempos"></table>
+</section>
+
+<section class="tarjeta aviso">
+  <p><b>Aviso:</b> herramienta de apoyo para tamizaje en clase, con datos públicos (APTOS 2019). <b>No es un diagnóstico</b> y no debe usarse con pacientes.</p>
+  <p class="nota">Prueba del modo avión: con el modelo ya cargado, activa el modo avión y vuelve a clasificar.</p>
+  <p id="dispositivo" class="nota"></p>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+<script src="../comun/comun.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
